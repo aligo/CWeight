@@ -6,11 +6,11 @@ module CWeight
     
     #1
     def 斤
-      self.两 * 16
+      两 * 16
     end
     #1
     def 两
-      self.铢 * 24
+      铢 * 24
     end
     #2
     def 铢
