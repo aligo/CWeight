@@ -20,25 +20,27 @@ module CWeight
    
   #2
   class CWeight
+
+    attr_reader :value
     #2
-    def initialize weight
-      @weight = weight
+    def initialize value
+      @value = value
+    end
+    #2
+    def * times
+      self.class.new @value * times
     end
     #4
-    def method_missing method, *args
-       self.class.new(@weight.send(method, *args))
+    def + another
+      self.class.new @value + another.value
+    end
+    #4
+    def - another
+      self.class.new @value - another.value
     end
     #2
     def == another
-      (another.class == self.class) && (@weight == another.to_int)
-    end
-    #4
-    def coerce x
-      [x, @weight]
-    end
-    #2
-    def to_int
-      @weight
+      (another.class == self.class) && (@value == another.value)
     end
 
   end
